@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import {Routes, Route, Link} from 'react-router-dom'
 import '../App.css'
+import books from './Books.jsx'
+
 
 function App() {
 
@@ -27,7 +29,10 @@ function App() {
         <Route path='/search' element={<div>Profile Page</div>}/>
 		</Routes>
     <div>
-      HIHI
+      <Search
+        className="div"
+
+       />
     </div>
     </>
   )
