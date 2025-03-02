@@ -8,16 +8,16 @@ import Nav from "./Nav.jsx";
 import Search from "./Search.jsx"
 
 function App() {
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch("https://api.example.com/data");
-      const data = await response.json();
-      console.log(data);
-    }
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await fetch("https://api.example.com/data");
+  //     const data = await response.json();
+  //     console.log(data);
+  //   }
 
-    fetchData();
-  }, []);
-  const [count, setCount] = useState(0);
+  //   fetchData();
+  // }, []);
+  // const [count, setCount] = useState(0);
 
   useEffect(() => {
     console.log("Component mounted! 🚀");
