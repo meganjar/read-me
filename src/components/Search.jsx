@@ -2,7 +2,14 @@
 
 export default function search() {
 
-    //logic
+    const handleFetch = async () => {
+        if (!inputValue) return; // Prevent sending empty requests
+    
+        const response = await fetch(`https://api.example.com/data?query=${encodeURIComponent(inputValue)}`);
+        const result = await response.json();
+        setData(result);
+      };
+    
     
      return (
          <form>
