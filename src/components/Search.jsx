@@ -1,6 +1,6 @@
 
 
-export default function search() {
+export default function Search() {
 
     // const handleFetch = async () => {
     //     if (!inputValue) return; // Prevent sending empty requests
