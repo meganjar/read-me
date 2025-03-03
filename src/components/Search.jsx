@@ -1,4 +1,4 @@
-
+import useStore from "./Store";
 
 export default function Search() {
 
@@ -9,6 +9,10 @@ export default function Search() {
     //     const result = await response.json();
     //     setData(result);
     //   };
+    function Controls() {
+        const increasePopulation = useStore((state) => state.increasePopulation)
+        return <button onClick={increasePopulation}>one up</button>
+      }
     
     
      return (
@@ -17,7 +21,7 @@ export default function Search() {
                 // type=''
                 // value=''
                 // onChange='{(e) => S'
-                placeholdertext='what are you looking for?' />
+                placeholder='search books' />
              <button>
                 Search
              </button>
