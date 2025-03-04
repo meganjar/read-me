@@ -1,31 +1,46 @@
+
 import useStore from "./Store";
+import Book from "./Book";
+import React from 'react'
 
 export default function Search() {
 
-    // const handleFetch = async () => {
-    //     if (!inputValue) return; // Prevent sending empty requests
+    const { query, setQuery, searchResults, fetchResults } = useStore(); 
     
-    //     const response = await fetch(`https://api.example.com/data?query=${encodeURIComponent(inputValue)}`);
-    //     const result = await response.json();
-    //     setData(result);
-    //   };
-    function Controls() {
-        const increasePopulation = useStore((state) => state.increasePopulation)
-        return <button onClick={increasePopulation}>one up</button>
-      }
+    
+ function handleSubmit(e) {
+     e.preventDefault();
+     const {value} = e.target.search
+     setQuery(value);
+     fetchResults()
+ }
     
     
      return (
-         <form>
+        <div>
+         <form onSubmit={handleSubmit}>
              <input 
-                // type=''
-                // value=''
-                // onChange='{(e) => S'
+                type='text'
+                name='search'
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
                 placeholder='search books' />
-             <button>
+             <button 
+               
+                type='submit'>
                 Search
              </button>
          </form>
+         <div>
+  {searchResults.length > 0 ? (
+    searchResults.map((book) => <Book key={book.id} book={book} />)
+  ) : (
+    <p>undefined is not a function… nor is it a book title.</p>
+  )}
+</div>
+        </div>
+
+
      )
  
  }
