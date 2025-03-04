@@ -8,9 +8,24 @@ const useStore = create((set, get) => ({
     setQuery: (value) => {
         set({ query: value }); 
       },
+    favorites: [],
+   
+    toggleFavorites: (book) => {
+        set((state) => {
+          const isFavorite = state.favorites.some((fav) => fav.id === book.id);
+          return {
+            favorites: isFavorite
+              ? state.favorites.filter((fav) => fav.id !== book.id)
+              : [...state.favorites, { ...book, inFavorites: true }],
+            searchResults: state.searchResults.map((b) =>
+              b.id === book.id ? { ...b, inFavorites: !isFavorite } : b
+            ),
+          };
+        });
+      },
     
     searchResults: [],
-    fetchResults: async(query) => {
+    fetchResults: async() => {
         try {
                 const { query } = get();
                 if (!query) return;

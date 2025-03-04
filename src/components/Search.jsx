@@ -33,7 +33,7 @@ export default function Search() {
          </form>
          <div>
   {searchResults.length > 0 ? (
-    searchResults.map((book) => <Book key={book.id} book={book} />)
+    searchResults.map((book) => <Book key={book.id} book={book}  />)
   ) : (
     <p>undefined is not a function… nor is it a book title.</p>
   )}

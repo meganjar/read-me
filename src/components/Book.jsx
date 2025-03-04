@@ -1,19 +1,22 @@
-export default function Books({book}) {
+import React from 'react'
+import { useStore } from "./Store";
 
+export default function Books({book}) {
+    const { toggleFavorites } = useStore(); 
     const { title, authors, imageLinks } = book.volumeInfo;
-    console.log(title, authors, imageLinks)
+    console.log(imageLinks?.thumbnail)
     const favorite = "<3"
      return (
-         <div className="book">
+         <div className="book-card">
              <img 
-                             src={imageLinks.thumbnail || "https://via.placeholder.com/150"} 
+                             src={imageLinks?.thumbnail} 
                              alt={title} 
                              className="book-thumbnail"
                              />
-             <h1></h1>
-             <p></p>
-             <button>preview</button>
-             <button>{favorite}</button>
+             <h1>{title}</h1>
+             <p>{authors}</p>
+             <button >preview</button>
+             <button onClick={() => toggleFavorites(book)} >{favorite}</button>
          </div>
      )
  
