@@ -1,6 +1,5 @@
 import { create } from 'zustand';
-
-
+export { useStore };
 const API_KEY = import.meta.env.VITE_REACT_APP_API_KEY;
 const baseURL = 'https://www.googleapis.com/books/v1/volumes'
 const useStore = create((set, get) => ({
